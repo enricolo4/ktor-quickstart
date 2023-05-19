@@ -8,5 +8,5 @@ class CreateIndividualUseCase(
     private val individualDataAccessPort: IndividualDataAccessPort
 ) : CreateIndividualPort {
     override suspend fun invoke(individualRequest: IndividualRequest) =
-        individualDataAccessPort.save(individualRequest.toModel())
+        individualDataAccessPort.save(individualRequest.toIndividual())
 }

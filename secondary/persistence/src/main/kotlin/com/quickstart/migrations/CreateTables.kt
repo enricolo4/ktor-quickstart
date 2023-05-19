@@ -1,5 +1,6 @@
-package com.quickstart.individual.shared
+package com.quickstart.migrations
 
+import com.quickstart.business.entity.BusinessesEntity
 import com.quickstart.individual.entity.IndividualsEntity
 import org.ufoss.kotysa.R2dbcSqlClient
 
@@ -7,10 +8,11 @@ interface CreateTablesService {
     suspend fun migrations()
 }
 
-class CreateTables(
+internal class CreateTables(
     private val client: R2dbcSqlClient
-)  : CreateTablesService{
+)  : CreateTablesService {
     override suspend fun migrations() {
         client createTableIfNotExists IndividualsEntity
+        client createTableIfNotExists BusinessesEntity
     }
 }

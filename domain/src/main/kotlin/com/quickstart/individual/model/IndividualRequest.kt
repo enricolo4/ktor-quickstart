@@ -4,7 +4,7 @@ data class IndividualRequest(
     val name: String,
     val nationalRegistration: String
 ) {
-    fun toModel() = Individual(
+    fun toIndividual() = Individual(
         name = name,
         nationalRegistration = nationalRegistration
     )

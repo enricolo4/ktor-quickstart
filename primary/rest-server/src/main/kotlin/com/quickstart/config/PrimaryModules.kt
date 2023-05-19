@@ -1,5 +1,6 @@
 package com.quickstart.config
 
+import com.quickstart.business.controller.businessController
 import com.quickstart.config.negotiation.contentNegotiation
 import com.quickstart.health.controller.healthController
 import com.quickstart.individual.controller.individualController
@@ -10,6 +11,7 @@ fun Application.routes() {
     contentNegotiation()
     routing {
         individualController()
+        businessController()
         healthController()
     }
 }

@@ -4,7 +4,7 @@ import com.quickstart.individual.model.Individual
 import java.util.UUID
 import org.ufoss.kotysa.h2.H2Table
 
-data class IndividualEntity(
+internal data class IndividualEntity(
     val id: UUID,
     val name: String,
     val nationalRegistration: String
@@ -12,9 +12,9 @@ data class IndividualEntity(
     fun toModel() = Individual(id, name, nationalRegistration)
 }
 
-fun Individual.toEntity() = IndividualEntity(id ?: UUID.randomUUID(), name, nationalRegistration)
+internal fun Individual.toEntity() = IndividualEntity(id ?: UUID.randomUUID(), name, nationalRegistration)
 
-object IndividualsEntity : H2Table<IndividualEntity>("individual") {
+internal object IndividualsEntity : H2Table<IndividualEntity>("individuals") {
     val id = uuid(IndividualEntity::id).primaryKey()
     val name = varchar(IndividualEntity::name)
     val nationalRegistration = varchar(IndividualEntity::nationalRegistration).unique()

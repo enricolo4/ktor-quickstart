@@ -4,7 +4,7 @@ import com.quickstart.individual.model.IndividualRequest
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class IndividualRequestDTO(
+internal data class IndividualRequestDTO(
     val name: String,
     val nationalRegistration:String
 ) {
